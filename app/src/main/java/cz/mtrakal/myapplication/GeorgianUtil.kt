@@ -15,10 +15,13 @@ package cz.mtrakal.myapplication
  * Created by mtrakal on 06.05.2020.
  */
 object GeorgianUtil {
+    /**
+     * Not using codePoints and UCharacter, so it can have some side effects?
+     */
     fun convertGeorgianUppercaseToLowercase(inputString: String?): String? {
         val sb = StringBuilder()
-        inputString?.codePoints()?.forEach { char ->
-            sb.appendCodePoint(convertMtavruliToMkhedruli(char))
+        inputString?.forEach { char ->
+            sb.appendCodePoint(convertMtavruliToMkhedruli(char.toInt()))
         }
         return sb.toString()
     }
